@@ -1,0 +1,59 @@
+---
+const { title, subtitle, color, id, bg_top_color, bg_center_color, bg_bottom_color, showFooterContent } = Astro.props;
+const textColor = `text-${color}`;
+import Badge from "@/components/icons/Badge.astro";
+import Footer from './Footer.astro';
+---
+
+<section
+  class="landing-section bg-black h-screen w-screen text-center overflow-hidden relative"
+  data-header-color={color}
+  id={id}
+>
+  <div class="z-30 relative h-full flex flex-col">
+    <header class="px-2 lg:pt-16 md:pt-12 xs:pt-10 pt-8">
+      <div class="flex justify-center px-7">
+        <section>
+          <img
+            src="krs.webp"
+            class="rounded-3xl mb-4 w-24 pt-6 shadow-lg object-scale-down"
+            alt="perfil-image" 
+          />
+          <a href="https://linkedin.com/in/kiara-rubio-117881208" target="_blank" rel="noopener" class="flex items-center transition md:justify-center md:hover:scale-105">
+            <Badge>Available to work</Badge>
+          </a>
+        </section>
+        <h2 class={`${textColor} hidden xl:block md:block sm:hidden text-lg md:text-xl lg:text-2xl xl:text-4xl pt-20 text-[40px] font-extrabold`}>
+          {title}
+        </h2>
+        <section class="xl:hidden md:hidden sm:block flex-col justify-center">
+          <h2 class={`${textColor} text-xl pt-20 font-extrabold`}>
+            {title}
+          </h2>
+          <a href="https://drive.google.com/file/d/1Gyu0YnncMIVr26pfx275HZuLGoMqctQR/view?usp=drive_link" target="_blank" rel="noopener" class="flex items-center transition m-7 px-5">
+            <button class="cursor-pointer text-white font-bold relative text-[12px] w-[9.5em] h-[2.25em] text-center bg-gradient-to-r from-green-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[30px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-green-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[35px] before:hover:blur-xl before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700 hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+              🎬 Download CV
+            </button>
+          </a>
+        </section>
+      </div>
+      <p class={`${textColor} text-2xl pt-4 md:text-xl lg:text-2xl xl:text-3xl`}>
+        {subtitle}
+      </p>
+    </header>
+
+    <section class="overflow-y-auto overflow-x-hidden">
+      <slot name="main" />
+    </section>
+
+    <footer class="flex flex-col flex-grow justify-end">
+      <slot name="footer" />
+      <!-- Contidionally load footer: -->
+      {showFooterContent && <Footer />}
+    </footer>
+  </div>
+
+  <div class={`absolute top-0 bottom-0 h-full w-full z-10 bg-gradient-to-b from-${bg_top_color}-700 via-${bg_center_color}-800 to-${bg_bottom_color}-800`}>
+    <slot name="background" />
+  </div>
+</section>

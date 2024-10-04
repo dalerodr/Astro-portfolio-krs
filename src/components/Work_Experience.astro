@@ -1,0 +1,204 @@
+---
+import Section from "./Section.astro";
+
+const JOBS = [
+  {
+    latest: true,
+    company: "TBWA\\Chiat\\Day",
+    title: "Content Delivery Coordinator",
+    start: "2024",
+    // end: "actually",
+    description: "Manage the day-to-day workflow and responsibilities.Assign ISCI/Ad-ID codes for linear, digital, social and audio campaigns.",
+    responsibilities: [
+      "Generate proper file name taxonomies and verify implementation by Production/Post houses.",
+      "Assist Traffic Operations department with US/Canada/Global Network Clearance submittals and organizing feedback for internal teams and clients.",
+      // "QC final captioning/subtitling and SRTs of broadcast and social video assets.",
+      // "Assist Traffic team with providing Business Affairs and Talent Payment Managers timely and accurate Linear use reports for talent payment.",
+      // "Support with final video and audio asset agency and client archiving.",
+      // "Assist with processing Brand team, Production, and client requests."
+    ]
+  },
+  {
+    company: "Warner Bros Discovery",
+    title: "OAP Content Coordinator",
+    start: "2022",
+    end: "2023",
+    description: "coordinating and organizing the On-Air Promotions team. Manage the logistics and administration of the workload between the different producers.",
+    responsibilities: [
+      "Lead monthly meetings with Marketing, Programming, Media Planning and Production teams to coordinate marketing campaign deliveries across all regions, ensuring an efficient workflow for the month. Including Discovery Channel, Home & Health, Discovery Kids, OWN and TLC for LATAM (Mexico, Colombia, Argentina, Brazil and the Caribbean).",
+      "I created and supervised the Work Orders ensuring a flawless execution of the projects in the area. Also, I was responsible for the Quality Control (QC) of each of the promos.",
+      // "Managed the creation of Purchase Orders and Accruals for an accurate control of the team's expenses and budgets.",
+      // "Created promos from scratch, adaptations and 'cineminutos' for Discovery Channel, Home & Health, Discovery Kids, OWN, TLC and ID for LATAM (Mexico, Argentina, Colombia, Brazil and the Caribbean) reaching a diverse audience and expanding the brand's reach in multiple regions. I used Avid Media Composer software.",
+      // "Successfully managed and delivered the final promos; from coordination with the voice talent, graphics department and audio team to the final delivery of each content."
+    ]
+  },
+  {
+    company: "Discovery Networks",
+    title: "Creative Promo Editor",
+    start: "2021",
+    end: "2022",
+    description: "Responsible for the production of promotional material for the company's different channels. Edited material and music to create promos from scratch, retag's and adaptations.",
+    responsibilities: [
+      "Proposed and created innovative ideas for editing promos. Mostly for factual content on Discovery Channel to generate content that attracted larger audiences to A and AA priority shows.",
+      "I identified the different types of editing and the content that had the most impact on the audience to understand viewer preferences to create innovative and fresh audiovisual content for the company's different channels.",
+      // "Managed the creation of Purchase Orders and Accruals for an accurate control of the team's expenses and budgets.",
+      // "Created promos from scratch, adaptations and 'cineminutos' for Discovery Channel, Home & Health, Discovery Kids, OWN, TLC and ID for LATAM (Mexico, Argentina, Colombia, Brazil and the Caribbean) reaching a diverse audience and expanding the brand's reach in multiple regions. I used Avid Media Composer software.",
+      // "Successfully managed and delivered the final promos; from coordination with the voice talent, graphics department and audio team to the final delivery of each content."
+    ]
+  }
+]
+---
+
+<Section
+  title="💼 Work Experience"
+  subtitle=""
+  color="white"
+  id="work-experience"
+  bg_top_color="green"
+  bg_center_color="green"
+  bg_bottom_color="red"
+  showFooterContent
+>
+
+  <div slot="main" class="grid grid-cols-1 items-center justify-center gap-6 px-5 pt-5 bg-inherit border-0 p-10">
+    {
+      // Last Experience: Big/Medium Screen
+      JOBS.map(({ company, latest, title, start, end, description, responsibilities }) => (
+      <div
+        data-hk="s00-0-0-0"
+        class="hidden xl:block md:block sm:hidden relative flex-col justify-between mx-auto max-w-[800px] bg-amber-700 bg-center bg-cover rounded-xl bg-dark-500 border-solid 
+              border-2 border-dark-400 hover:border-yellow-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl
+              transition-all duration-200 ease-in-out hover:skew-y-1 p-2">
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full">
+        </div>
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-dark-500 from-30% w-full h-full">
+        </div>
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-l from-dark-500 w-full h-full">
+        </div>
+        <div class="flex flex-col lg:flex-row justify-between items-center lg:items-center h-full w-full py-2 px-4">
+          <div class="w-full">
+            <div class="flex flex-row w-full mb-2 gap-8">
+              <h2 class="text-white font-bold italic text-3xl -ml-2">
+                {company}
+                {latest && (
+                  <span class="bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
+                    latest
+                  </span>
+                )}
+              </h2>
+              <h2 class="text-white font-bold text-3xl ml-auto">
+                {title}
+              </h2>
+              <div class="flex gap-1 items-center text-white">
+                <time class="font-bold bg-green-500 text-white text-sm m-0 flex rounded-xl items-center shadow-xl p-1">
+                  {start}
+                </time>
+                {end && (
+                  <time data-hk="s00-0-0-1-2" class="font-bold bg-red-500 text-white text-sm m-0 flex rounded-xl items-center shadow-xl p-1">
+                    {end}
+                  </time>
+                )}
+              </div>
+            </div>
+            <div>
+              <span class="text-white max-w-xl">
+                <div>
+                  <h4 class="font-bold">
+                    Job Description:
+                  </h4>
+                  <p>
+                    {description}
+                  </p>
+                  <br/>
+                  <h4 class="font-bold">
+                    Responsibilities:
+                  </h4>
+                  <ul class="list-disc list-inside">
+                    {responsibilities.map((responsibility) => (
+                      <li class="mt-2">
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      ))
+    }
+    {
+      // Last Experience: Small Screen
+      JOBS.map(({ company, latest, title, start, end, description, responsibilities }) => (
+      <div
+        data-hk="s00-0-0-0"
+        class="md:hidden relative flex-col justify-between mx-auto max-w-7xl bg-amber-700 bg-center bg-cover rounded-xl bg-dark-500 border-solid 
+              border-2 border-dark-400 hover:border-yellow-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl
+              transition-all duration-200 ease-in-out hover:skew-y-1 p-2">
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full">
+        </div>
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-dark-500 from-30% w-full h-full">
+        </div>
+        <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-l from-dark-500 w-full h-full">
+        </div>
+        <div class="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-2 h-full w-full py-2 px-4">
+          <div class="w-full">
+            <div class="flex flex-row w-full justify-between mb-2">
+              <h2 class="text-white font-bold italic text-xl m-auto">
+                {company}
+                {latest && (
+                  <span class="bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
+                    latest
+                  </span>
+                )}
+              </h2>
+              <div class="flex gap-1 items-center text-white">
+                <time class="font-bold bg-green-500 text-white text-sm m-0 flex rounded-xl items-center shadow-xl p-1">
+                  {start}
+                </time>
+                {end && (
+                  <time data-hk="s00-0-0-1-2"
+                  class="font-bold bg-red-500 text-white text-sm m-0 flex rounded-xl items-center shadow-xl p-1">
+                    {end}
+                  </time>
+                )}
+              </div>
+            </div>
+            <div>
+              <span class="text-white max-w-xl">
+                <div>
+                  <h2 class="text-3xl font-extrabold ml-auto">
+                    {title}
+                  </h2>
+                  <h4 class="font-bold">
+                    Job Description:
+                  </h4>
+                  <p>
+                    {description}
+                  </p>
+                  <br/>
+                  <h4 class="font-bold">
+                    Responsibilities:
+                  </h4>
+                  <ul class="list-disc list-inside">
+                    {responsibilities.map((responsibility) => (
+                      <li class="mt-2">
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      ))
+    }      
+  </div>
+
+  <section slot="background" class="absolute top-0 bottom-0 h-full w-full z-10 bg-gradient-to-b from-green-800 via-green-800 to-amber-800">
+  </section>
+
+</Section>

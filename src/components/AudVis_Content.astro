@@ -1,0 +1,187 @@
+---
+import Section from "./Section.astro";
+import Star from "@/components/icons/Star.astro";
+import Half_Star from "@/components/icons/Half_Star.astro";
+
+const VIDEOS = [
+  {
+    video: "CINEMINUTO-BRANDING-HALLOWEEN-HH.mp4",
+    title: "HALLOWEEN",
+    subtitle: "By Kiara Rubio",
+    stars: 4,
+    half_star: true,
+    stars_label: "4.5/5 stars",
+    tags: ["#CINEMINUTO", "#ShortVideo"]
+  },
+  {
+    video: "CINEMINUTO_KIDSMEX_JULIO.mp4",
+    title: "KIDS MEX",
+    subtitle: "By Kiara Rubio",
+    stars: 5,
+    half_star: false,
+    stars_label: "5/5 stars",
+    tags: ["#CINEMINUTO", "#Julio"]
+  },
+  {
+    video: "OLG00489.mp4",
+    title: "CRIME SCENE",
+    subtitle: "By Kiara Rubio",
+    stars: 5,
+    half_star: false,
+    stars_label: "5/5 stars",
+    tags: ["#CINEMINUTO", "#Crimescene"]
+  },
+  {
+    video: "OLG00420.mp4",
+    title: "WEB OF LIES",
+    subtitle: "By Kiara Rubio",
+    stars: 5,
+    half_star: false,
+    stars_label: "5/5 stars",
+    tags: ["#CINEMINUTO", "#Lies"]
+  },
+  {
+    video: "DMG15357.mp4",
+    title: "EXPEDICIÓN X",
+    subtitle: "By Kiara Rubio",
+    stars: 4,
+    half_star: true,
+    stars_label: "4.5/5 stars",
+    tags: ["#Discovery", "#StrangerThings"]
+  },
+  {
+    video: "DMT04922.mp4",
+    title: "TRAVESÍAS",
+    subtitle: "By Kiara Rubio",
+    stars: 4,
+    half_star: true,
+    stars_label: "4.5/5 stars",
+    tags: ["#Discovery", "#TravesíasPorElMundo"]
+  },
+  {
+    video: "IMG_2973.mp4",
+    title: "PROMO SERIES",
+    subtitle: "By Kiara Rubio",
+    stars: 5,
+    half_star: false,
+    stars_label: "5/5 stars",
+    tags: ["#Discovery", "#TravesíasPorElMundo"]
+  }
+]
+---
+
+<Section
+  title="Audiovisual Content"
+  subtitle=""
+  color="white"
+  id="audiovisual-content"
+  bg_top_color="red"
+  bg_center_color="amber"
+  bg_bottom_color="green"
+  showFooterContent
+>
+
+  <div slot="main" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 px-12 pt-5">
+    {
+      // Card
+      VIDEOS.map(({ video, title, subtitle, stars, half_star, stars_label, tags }) => (
+      <div class="relative flex flex-col min-w-min bg-inherit items-center">
+        <div class="card shadow-[0px_4px_16px_px_#367E08] h-[390px] md:h-[455px] w-[310px] md:w-[400px] group gap-[0.5em] rounded-[1.5em] relative flex justify-end flex-col p-[1.5em] z-[1] overflow-hidden">
+          <div class="absolute top-0 left-0 h-full w-full bg-[#070707]">
+            <video class="w-auto" controls>
+              <source src={video} type="video/mp4"/>
+            </video>
+          </div>
+          <div class="container text-white z-[2] relative flex flex-col gap-[0.5em]">
+            <div class="h-fit w-full">
+              {/* //Title */}
+              <h1 class="card_heading text-[1.5em] tracking-[.2em]" 
+                  style="font-weight: 900; -webkit-text-fill-color: transparent;
+                        -webkit-text-stroke-width: 1px; text-shadow: 0 0 7px #ff0000;">
+                {title}
+              </h1>
+              {/* //Subtitle */}
+              <p class="text-[1.2em]" style="font-weight: 900; 7px #fff;">
+                {subtitle}
+              </p>
+            </div>
+            {/* //Stars */}
+            <div class="flex justify-center items-center h-fit w-full">
+              <div class="w-fit h-fit flex justify-left gap-[0.5em] mr-[0.5em]">
+                {stars > 0 && (
+                  <Star />
+                )}
+                {stars > 1 && (
+                  <Star />
+                )}
+                {stars > 2 && (
+                  <Star />
+                )}
+                {stars > 3 && (
+                  <Star />
+                )}
+                {stars > 4 && (
+                  <Star />
+                )}
+                {half_star && (
+                  <Half_Star />
+                )}
+              </div>
+              <div class="w-fit h-fit text-white font-nunito text-[1.2em] font-light">
+                <p>{stars_label}</p>
+              </div>
+            </div>
+            {/* //Tags */}
+            <div class="flex justify-center items-center h-fit w-full gap-[0.5em]">
+              {tags.map((tag) => (
+                <div class="border-2 border-white rounded-[0.5em] text-white font-nunito text-[1em] font-normal px-[0.5em] py-[0.05em] hover:bg-white hover:text-[#222222] duration-300 cursor-pointer">
+                  <p>{tag}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* //Description */}
+          {/* <p class="font-nunito block text-white font-light relative h-[0em] group-hover:h-[7em] leading-[1.2em] duration-500 overflow-hidden">
+            Texto
+          </p> */}
+          {/* //Button */}
+          <div class="items-center justify-center text-center pt-3"> 
+            <button onclick={`window.location.href = '${video}';`} class="h-auto overflow-hidden relative w-32 p-2 bg-sky-700 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group">
+              Ver Video
+              <span class="absolute w-36 h-32 -top-8 -left-2 bg-green-200 rounded-full transform scale-x-0 group-hover:scale-x-100 
+                    transition-transform group-hover:duration-500 duration-1000 origin-bottom">
+              </span>
+              <span class="absolute w-36 h-32 -top-8 -left-2 bg-green-400 rounded-full transform scale-x-0 group-hover:scale-x-100 
+                    transition-transform group-hover:duration-700 duration-700 origin-bottom">
+              </span>
+              <span class="absolute w-36 h-32 -top-8 -left-2 bg-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 
+                    transition-transform group-hover:duration-1000 duration-500 origin-bottom">
+              </span>
+              <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-8">
+                Explorar!
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      ))
+    }
+  </div>
+
+  <section slot="background" class="absolute top-0 bottom-0 h-full w-full z-10 bg-gradient-to-b from-red-800 via-amber-800 to-green-800">
+  </section>
+
+</Section>
+
+
+<script>
+  const videos = document.querySelectorAll('video') as NodeListOf<HTMLVideoElement>;
+
+  // Loop through each video element
+  videos.forEach((video) => {
+    // When the video is ready to play
+    video.addEventListener('loadedmetadata', function() {
+      video.currentTime = 1; // Starts from the second 1
+    });
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+import Section from "./Section.astro"
+---
+
+<Section
+  title="Kiara Rubio Sánchez"
+  subtitle="✨ Content Project Manager"
+  color="white"
+  id="home"
+  bg_top_color="green"
+  bg_center_color="green"
+  bg_bottom_color="red"
+  showFooterContent
+>
+
+  <div slot="main" class="px-4 pb-2">
+    <p class="max-w-4xl mx-auto gap-4 mt-6 text-xl pb-10 text-gray-300 [&>strong]:text-amber-500 [&>strong]:font-semibold">
+      +3 años de experiencia. 
+      <strong>
+        liderando y coordinando reuniones y entregas mensuales con los equipos de Marketing, Programación, Planeación y Producción
+      </strong> 
+      de Ciudad de México, CDMX, <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" alt="Bandera de México" class="w-9 h-auto inline-flex"> .Diseño y producción de piezas audiovisuales para el lanzamiento de películas. 
+      Creatividad, determinación, deseo de superación, adaptabilidad y empatía. 
+      Otros conocimientos: manejo de softwares de
+      <strong>
+        AVID Media Composer, Pro Tools, Adobe y Google Suite, y SAP.
+      </strong>
+        Disfruto la gestión de proyectos en su totalidad llevándolos al mejor resultado.
+    </p>
+    
+    <div class="items-center justify-center text-center hidden xl:block md:hidden sm:hidden pt-10">
+      <button class="relative z-0 h-12 rounded-full bg-green-500 px-6 text-neutral-50 after:absolute after:left-0 after:top-0 after:-z-10 
+                  after:h-full after:w-full after:rounded-full after:bg-emerald-500 hover:after:scale-x-125 hover:after:scale-y-145 hover:after:opacity-0 
+                  hover:after:transition hover:after:duration-500"
+            onclick="window.location.href = 'mailto:kiara_rubio@outlook.com';">
+            👉 Contact me 👈
+      </button>
+    </div>
+
+    <div class="items-center justify-center text-center hidden xl:block md:hidden sm:hidden pt-44">
+      <button onclick="window.location.href = '#audiovisual-content';" class="cursor-pointer bg-gray-800 px-3 py-2 rounded-md text-gray-300 tracking-wider shadow-xl animate-bounce hover:animate-none">
+        <svg
+          class="w-5 h-5"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+            stroke-linejoin="round"
+            stroke-linecap="round">
+          </path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div slot="footer" class="items-center justify-center text-center xl:hidden md:block sm:block">
+    <button class="relative z-0 h-12 rounded-full bg-green-500 px-6 text-neutral-50 after:absolute after:left-0 after:top-0 after:-z-10 
+                   after:h-full after:w-full after:rounded-full after:bg-emerald-500 hover:after:scale-x-125 hover:after:scale-y-145 hover:after:opacity-0 
+                   hover:after:transition hover:after:duration-500"
+            onclick="window.location.href = 'mailto:kiara_rubio@outlook.com';">
+            👉 Contact me 👈
+    </button>
+  </div>
+
+  <section slot="background" class="absolute top-0 bottom-0 h-full w-full z-10 bg-gradient-to-b from-green-700 via-green-800 to-red-800">
+  </section>
+</Section>

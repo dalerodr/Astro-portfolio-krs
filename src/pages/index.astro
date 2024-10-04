@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from "../components/Header.astro";
+import Home from "../components/Home.astro";
+import AudVis_Content from "../components/AudVis_Content.astro";
+import Work_Experience from "../components/Work_Experience.astro";
+---
+
+<Layout title="Porfolio de Kiara Rubio - Project Manager within film industry">
+  <Header />
+
+	<main class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
+	  <div class="snap-center">
+		<Home />
+	  </div>
+	  <div class="snap-center">
+		<AudVis_Content />
+	  </div>
+	  <div class="snap-center">
+		<Work_Experience />
+	  </div>
+	</main>
+
+</Layout>
